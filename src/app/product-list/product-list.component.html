@@ -1,26 +1,23 @@
 <h2>Products</h2>
 
 <div *ngFor="let product of products">
-  <h3>
-    <a
-      [title]="product.name + ' details'"
-      [routerLink]="['/products', product.id]"
-    >
-      {{ product.name }}
-    </a>
-  </h3>
+	<h3>
+		<a [title]="product.name + ' details'" [routerLink]="['/products', product.name]">
+			{{ product.name }}
+		</a>
+	</h3>
 
-  <p *ngIf="product.description">
-    Description: {{product.description}}
-  </p>
+	<p *ngIf="product.description">
+		Description: {{product.description}}
+	</p>
 
-  <button (click)="share()">
+	<button (click)="share()">
     Share
   </button>
 
-  <app-product-alerts [product]="product" (notify)="onNotify()">
-  </app-product-alerts>
-  <!-- pass data from parent to child  !-->
+	<app-product-alerts [product]="product" (notify)="onNotify()">
+	</app-product-alerts>
+	<!-- pass data from parent to child  !-->
 </div>
 
 <!-- 
